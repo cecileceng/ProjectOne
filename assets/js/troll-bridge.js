@@ -9,8 +9,6 @@ $.ajax({
 		var results = entity.topic;
 		console.log(results)
 	});
-
-});
 		// var results = response.data;
 
 		// for (var i = 0; i < results.length; i++) {
