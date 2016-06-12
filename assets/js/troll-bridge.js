@@ -11,10 +11,16 @@ $('#search').on('click', function() {
     .done(function(result) {
 	    console.log(result)
 	    // do some stuff with result
+        var accessToken = result.oauth_token;
+        console.log(result.oauth_token)
         var twitterQuery = "https://api.twitter.com/1.1/search/tweets.json?q=%23cecileforreal";
         $.ajax({
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + accessToken)
+            },
             url: twitterQuery,
-            method: 'GET'
+            method: 'GET',
+            crossDomain: true
             })
             .done(function(response) {
                 console.log(response)
