@@ -1,3 +1,20 @@
+//OAuth.initialize('JyMTUTko9vhzzB2JPK6qJ99Ve');
+
+//provider can be 'facebook', 'twitter', 'github', or any supported
+//provider that contain the fields 'firstname' and 'lastname' 
+//or an equivalent (e.g. "FirstName" or "first-name")
+//var provider = 'twitter';
+
+$('#search').on('click', function() {
+	OAuth.initialize('Csgqk4zZXi-S_NEKhLuYIwGlvCo')
+	OAuth.popup('twitter').done(function(result) {
+	    console.log(result)
+	    // do some stuff with result
+	})
+}) 
+
+
+
 var text = "Don King, and so many other African Americans who know me well and endorsed me, would not have done so if they thought I was a racist!"
 var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + text + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";
 
@@ -10,3 +27,4 @@ $.ajax({
         console.log(response)
         
     });
+
