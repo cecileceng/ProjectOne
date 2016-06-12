@@ -12,13 +12,18 @@ $('#search').on('click', function() {
         result.get('/1.1/account/verify_credentials.json').done(function(data) {
             console.log(data)
         })
+        var twitterQuery = "/1.1/search/tweets.json?q=%23cecileforreal";
+        result.get(twitterQuery).done(function(data) {
+            console.log(data)
+        })
+
     })
  //    .done(function(result) {
 	//     console.log(result)
 	//     // do some stuff with result
  //        var accessToken = result.oauth_token;
  //        console.log(result.oauth_token)
- //        var twitterQuery = "https://api.twitter.com/1.1/search/tweets.json?q=%23cecileforreal";
+ //        var twitterQuery = "http://api.twitter.com/1.1/search/tweets.json?q=%23cecileforreal";
  //        $.ajax({
  //            beforeSend: function (xhr) {
  //                xhr.setRequestHeader("Authorization", "Bearer " + accessToken)
