@@ -7,33 +7,38 @@
 
 $('#search').on('click', function() {
 	OAuth.initialize('Csgqk4zZXi-S_NEKhLuYIwGlvCo')
-	OAuth.popup('twitter')
-    .done(function(result) {
-	    console.log(result)
-	    // do some stuff with result
-        var accessToken = result.oauth_token;
-        console.log(result.oauth_token)
-        var twitterQuery = "https://api.twitter.com/1.1/search/tweets.json?q=%23cecileforreal";
-        $.ajax({
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("Authorization", "Bearer " + accessToken)
-            },
-            url: twitterQuery,
-            method: 'GET',
-            crossDomain: true
-            })
-            .done(function(response) {
-                console.log(response)
-            })
-            .fail(function (err) {
-                //handle error with err
-                console.log(err)
-            });
-	})
-    .fail(function (err) {
-      //handle error with err
-      console.log(err)
-    });
+	OAuth.popup('twitter', function(err, result){
+        console.log(err)
+        result.get('/1.1/account/verify_credentials.json').done(function(data) {
+            console.log(data)
+        })
+    })
+ //    .done(function(result) {
+	//     console.log(result)
+	//     // do some stuff with result
+ //        var accessToken = result.oauth_token;
+ //        console.log(result.oauth_token)
+ //        var twitterQuery = "https://api.twitter.com/1.1/search/tweets.json?q=%23cecileforreal";
+ //        $.ajax({
+ //            beforeSend: function (xhr) {
+ //                xhr.setRequestHeader("Authorization", "Bearer " + accessToken)
+ //            },
+ //            url: twitterQuery,
+ //            method: 'GET',
+ //            crossDomain: true
+ //            })
+ //            .done(function(response) {
+ //                console.log(response)
+ //            })
+ //            .fail(function (err) {
+ //                //handle error with err
+ //                console.log(err)
+ //            });
+	// })
+ //    .fail(function (err) {
+ //      //handle error with err
+ //      console.log(err)
+ //    });
 }) 
 
 
