@@ -7,10 +7,19 @@
 
 $('#search').on('click', function() {
 	OAuth.initialize('Csgqk4zZXi-S_NEKhLuYIwGlvCo')
-	OAuth.popup('twitter').done(function(result) {
+    .fail(function (err) {
+      //handle error with err
+      console.log(err)
+    });
+	OAuth.popup('twitter')
+    .done(function(result) {
 	    console.log(result)
 	    // do some stuff with result
 	})
+    .fail(function (err) {
+      //handle error with err
+      console.log(err)
+    });
 }) 
 
 
