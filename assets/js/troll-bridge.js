@@ -11,6 +11,18 @@ $('#search').on('click', function() {
     .done(function(result) {
 	    console.log(result)
 	    // do some stuff with result
+        var twitterQuery = "https://api.twitter.com/1.1/search/tweets.json?q=%23cecileforreal";
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+            })
+            .done(function(response) {
+                console.log(response)
+            })
+            .fail(function (err) {
+                //handle error with err
+                console.log(err)
+            });
 	})
     .fail(function (err) {
       //handle error with err
@@ -32,4 +44,3 @@ $.ajax({
         console.log(response)
         
     });
-
