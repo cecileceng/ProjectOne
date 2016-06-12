@@ -12,7 +12,8 @@ $('#search').on('click', function() {
         result.get('/1.1/account/verify_credentials.json').done(function(data) {
             console.log(data)
         })
-        var twitterQuery = "/1.1/search/tweets.json?q=%23cecileforreal";
+//        var twitterQuery = "/1.1/search/tweets.json?q=%23cecileforreal";
+        var twitterQuery = "/1.1/" + $('#username').val();
         result.get(twitterQuery).done(function(data) {
             console.log(data)
         })
