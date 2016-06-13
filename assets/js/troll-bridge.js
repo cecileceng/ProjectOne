@@ -13,7 +13,7 @@ $('#search').on('click', function() {
             console.log(data)
         })
 //        var twitterQuery = "/1.1/search/tweets.json?q=%23cecileforreal";
-        var twitterQuery = "/1.1/" + $('#username').val();
+        var twitterQuery = "/1.1/statuses/user_timeline.json?screen_name=" + $('#username').val() + "&count10";
         result.get(twitterQuery).done(function(data) {
             console.log(data)
         })
