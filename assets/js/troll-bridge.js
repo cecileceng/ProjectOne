@@ -17,8 +17,11 @@ $('#search').on('click', function() {
         result.get(twitterQuery).done(function(data) {
             console.log(data)
         })
+        
 
     })
+
+
  //    .done(function(result) {
 	//     console.log(result)
 	//     // do some stuff with result
