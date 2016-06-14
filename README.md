@@ -1,2 +1,3 @@
-# ProjectOne
-First big group project of Coding Camp
+# Troll Bridge
+Our first big group project of Coding Camp
+
