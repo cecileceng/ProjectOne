@@ -25,6 +25,7 @@ $('#search').on('click', function() {
             
             //tweetText.toString();
             }
+
         var totalTweet = tweetText.join();
         console.log(totalTweet);
         
@@ -43,9 +44,18 @@ $('#search').on('click', function() {
         
 
         });
-        
 
-    })
+        var totalTweet = tweetText.join(" ");
+        console.log(totalTweet);
+
+        
+        var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + totalTweet + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";
+
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+            })
+
 
  //    .done(function(result) {
     //     console.log(result)
@@ -110,6 +120,18 @@ $('#search').on('click', function() {
         var twitterQuery = "/1.1/statuses/user_timeline.json?screen_name=" + $('#username').val() + "&count10";
         result.get(twitterQuery).done(function(data) {
             console.log(data)
+=======
+            .done(function(response) {
+            console.log(response);
+            //console.log(tweetText);
+                
+            });
+        
+
+        });
+        
+
+>>>>>>> 893b2dd3a6ff885139e7534d84ac2efdf02ddb77
     })
 
  //    .done(function(result) {
@@ -138,17 +160,38 @@ $('#search').on('click', function() {
  //      //handle error with err
  //      console.log(err)
  //    });
-}) 
+})   
+        // var text = "hello that is wonderful!"
+        // var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + text + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";
 
+<<<<<<< HEAD
 var text = ["tweetText"];
 var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + text + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";
+=======
+        // $.ajax({
+        //     url: queryURL,
+        //     method: 'GET'
+        //     })
+>>>>>>> 893b2dd3a6ff885139e7534d84ac2efdf02ddb77
 
-$.ajax({
-    url: queryURL,
-    method: 'GET'
-    })
+        //     .done(function(response) {
+        //     console.log(response);
+        //     //console.log(tweetText);
+                
+        //     });
+// var text = "hello you jerk"
+// var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + text + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";
 
-    .done(function(response) {
-        console.log(response)
+// $.ajax({
+//     url: queryURL,
+//     method: 'GET'
+//     })
+
+//     .done(function(response) {
+//         console.log(response)
         
+<<<<<<< HEAD
     }); /*
+=======
+//     });
+>>>>>>> 893b2dd3a6ff885139e7534d84ac2efdf02ddb77
