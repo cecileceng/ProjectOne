@@ -8,19 +8,44 @@
 $('#search').on('click', function() {
 	OAuth.initialize('Csgqk4zZXi-S_NEKhLuYIwGlvCo')
 	OAuth.popup('twitter', function(err, result){
-        console.log(err)
+        //console.log(err)
         result.get('/1.1/account/verify_credentials.json').done(function(data) {
-            console.log(data)
+       //     console.log(data)
         })
 //        var twitterQuery = "/1.1/search/tweets.json?q=%23cecileforreal";
         var twitterQuery = "/1.1/statuses/user_timeline.json?screen_name=" + $('#username').val() + "&count10";
         result.get(twitterQuery).done(function(data) {
-            console.log(data)
-        })
+            //console.log(data);
+            var tweetText = [];
+            for (i = 0; i < data.length; i++) {
+            //console.log(data[i].text);
+            //var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + data[i].text + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";
+            //var tweetText = [];
+            tweetText.push(data[i].text);
+            
+            //tweetText.toString();
+            }
+        var totalTweet = tweetText.join(" ");
+        console.log(totalTweet);
+        
+        var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + totalTweet + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";
+
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+            })
+
+            .done(function(response) {
+            console.log(response);
+            //console.log(tweetText);
+                
+            });
+        
+
+        });
         
 
     })
-
 
  //    .done(function(result) {
 	//     console.log(result)
@@ -48,17 +73,29 @@ $('#search').on('click', function() {
  //      //handle error with err
  //      console.log(err)
  //    });
-}) 
+})   
+        // var text = "hello that is wonderful!"
+        // var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + text + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";
 
-var text = "Don King, and so many other African Americans who know me well and endorsed me, would not have done so if they thought I was a racist!"
-var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + text + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";
+        // $.ajax({
+        //     url: queryURL,
+        //     method: 'GET'
+        //     })
 
-$.ajax({
-    url: queryURL,
-    method: 'GET'
-    })
+        //     .done(function(response) {
+        //     console.log(response);
+        //     //console.log(tweetText);
+                
+        //     });
+// var text = "hello you jerk"
+// var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + text + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";
 
-    .done(function(response) {
-        console.log(response)
+// $.ajax({
+//     url: queryURL,
+//     method: 'GET'
+//     })
+
+//     .done(function(response) {
+//         console.log(response)
         
-    });
+//     });
