@@ -5,14 +5,18 @@
  	<link rel="stylesheet" href="assets/css/style.css">
  	<script src="assets/js/oauth.js"></script>
  	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link href='https://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+ 	<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+ 	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+ 	<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 	<title>Troll Bridge</title>
 </head>
 <body>
 <div class="container">
 	<header>
-		<img src="assets/images/troll.jpg" alt="Trolls">
-	</header>
-	<div class="panel panel-default">
+		<img src="assets/images/troll.jpg" id="trollimg" alt="Trolls">
+	</header><br>
+	<div class="panel panel-success panel-transparent">
 		<div class="panel-heading">
 			<h3 class="panel-title">About Troll Bridge</h3>
 		</div>
@@ -28,7 +32,7 @@
 			</p>
 		</div>
 	</div>
-	<div class="panel panel-default">
+	<div class="panel panel-success panel-transparent">
 		<div class="panel-heading">
 			<h3 class="panel-title">
 				<form>
@@ -40,15 +44,15 @@
 			</h3>
 		</div>
 		<div class="row">
-			<div class="panel-body col-sm-6" class="positive">Positive Words
+			<div class="panel-body col-sm-6" id="positive">Positive Words
 			</div>
-			<div class="panel-body col-sm-6" class="negative">Negative Words
+			<div class="panel-body col-sm-6" id="negative">Negative Words
 			</div>
 		</div>
 		<div class="row">
-			<div class="panel-body col-sm-3" class="score">User's Score
+			<div class="panel-body col-sm-3" id="score">User's Score
 			</div>
-			<div class="panel-body col-sm-9" class="tweets">Tweets
+			<div class="panel-body col-sm-9" id="tweets">Tweets
 			</div>
 			</div>
 		</div>
