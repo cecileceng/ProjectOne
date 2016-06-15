@@ -1,9 +1,4 @@
-//OAuth.initialize('JyMTUTko9vhzzB2JPK6qJ99Ve');
-
-//provider can be 'facebook', 'twitter', 'github', or any supported
-//provider that contain the fields 'firstname' and 'lastname' 
-//or an equivalent (e.g. "FirstName" or "first-name")
-//var provider = 'twitter';
+$("#tweets").html("<p>hello</p>");
 
 $('#search').on('click', function() {
     OAuth.initialize('Csgqk4zZXi-S_NEKhLuYIwGlvCo')
@@ -17,20 +12,34 @@ $('#search').on('click', function() {
         result.get(twitterQuery).done(function(data) {
             //console.log(data);
             var tweetText = [];
-            for (i = 0; i < data.length; i++) {
-            //console.log(data[i].text);
-            //var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + data[i].text + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";
-            //var tweetText = [];
+            console.log(data);
+
+            for (i = 0; i < 5; i++) {
+
+//                if(data[i].retweeted == true) {data.splice(i,1);}
+                data[i].entities = false
+                data[i].extended_entities = false
             tweetText.push(data[i].text);
             
             //tweetText.toString();
             }
+        var totalTweet = tweetText.join(". ");
 
-        var totalTweet = tweetText.join();
-        console.log(totalTweet);
+        var handle_regex = /\@\w+[a-zA-Z]/gim;
+        var hashtag_regex = /#\S*/gim;
+        var colon_regex = /:\S*/gim;
+        var url_www_regex = /https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,}/gim;
+        var url_other_regex = /\bhttp\:\/\/\w+\.\w+\/\w+/gim;
+        var line_break_regex = /\r?\n|\r/gim;
+        var RT_regex = /RT/gim;
+        var cleanText = totalTweet.replace(handle_regex, '').replace(hashtag_regex, '').replace(url_www_regex, '').replace(url_other_regex, '').replace(colon_regex, '').replace(line_break_regex, '').replace(RT_regex, '');
+        JSON.stringify(cleanText);
+        console.log(cleanText);
+        //var cleanText = "The Legend of Zelda Retweet event begins!  in-app gifts for s! ⇒   h…. Technology catching up with our imaginations! Here's a staup with man-made shooting stars in its eyes  via .  Also, to clarify, not actually rich.. Inspiring words from Madeleine Albright in a commencement speech for the class of 2016 at Scripps     Looking forward to rich people problems  "
+        var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + cleanText + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";    
+        //$(".tweets").append(cleanText);
+        //$(".tweets").append("<p>hello</p>");
         
-        var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + totalTweet + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";
-
         $.ajax({
             url: queryURL,
             method: 'GET'
@@ -41,59 +50,6 @@ $('#search').on('click', function() {
             //console.log(tweetText);
                 
             });
-        
-
         });
-
-        var totalTweet = tweetText.join(" ");
-        console.log(totalTweet);
-
-        
-        var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + totalTweet + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";
-
-        $.ajax({
-            url: queryURL,
-            method: 'GET'
-            })
-
-
- //    .done(function(result) {
-    //     console.log(result)
-    //     // do some stuff with result
- //        var accessToken = result.oauth_token;
- //        console.log(result.oauth_token)
- //        var twitterQuery = "http://api.twitter.com/1.1/search/tweets.json?q=%23cecileforreal";
- //        $.ajax({
- //            beforeSend: function (xhr) {
- //                xhr.setRequestHeader("Authorization", "Bearer " + accessToken)
- //            },
- //            url: twitterQuery,
- //            method: 'GET',
- //            crossDomain: true
- //            })
- //            .done(function(response) {
- //                console.log(response)
- //            })
- //            .fail(function (err) {
- //                //handle error with err
- //                console.log(err)
- //            });
-    // })
- //    .fail(function (err) {
- //      //handle error with err
- //      console.log(err)
- //    });
-}) 
-
-// var text = "hello you jerk"
-// var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=" + text + "&highlight_expression=links&apikey=e91f7825-eb95-4ef2-be5e-09485475e3d8";
-
-// $.ajax({
-//     url: queryURL,
-//     method: 'GET'
-//     })
-
-//     .done(function(response) {
-//         console.log(response)
-        
-//     });
+    });
+});
