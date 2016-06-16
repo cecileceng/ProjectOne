@@ -1,5 +1,3 @@
-$("#tweets").html("<p>hello</p>");
-
 $('#search').on('click', function() {
     OAuth.initialize('Csgqk4zZXi-S_NEKhLuYIwGlvCo')
     OAuth.popup('twitter', function(err, result){
@@ -16,9 +14,9 @@ $('#search').on('click', function() {
 
             for (i = 0; i < 20; i++) {
 
-                if(data[i].retweeted == true) {data.splice(i,1);}
-                data[i].entities = false
-                data[i].extended_entities = false
+                // if(data[i].retweeted == true) {data.splice(i,1);}
+                // data[i].entities = false
+                // data[i].extended_entities = false
             tweetText.push(data[i].text);
             
             //tweetText.toString();
@@ -53,8 +51,9 @@ $('#search').on('click', function() {
             .done(function(response) {
             console.log(response);
             //console.log(tweetText);
-                
             });
         });
     });
 });
+
+$("#positive").html("<p>hello</p>");
