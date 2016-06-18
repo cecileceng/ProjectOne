@@ -39,18 +39,36 @@ body{
 	border: 1px solid #d9d9d9;
 }
 
-#positive{
-	text-align: center;
+.positive{
+	text-align: left;
+	color: #98fb98;
 }
 
-#negative{
-	text-align: center;
+.negative{
+	text-align: left;
+	color: #EE6363;
 }
 
 #score{
 	text-align: right;
 }
 
-#tweets{
+#scoretypes {
+	margin-left: 50px;
+}
+
+.tweets{
 	text-align: center;
+}
+
+.hover1 tbody tr:hover td{
+  background-color: #228B22;
+}
+
+.hover2 tbody tr:hover td{
+  background-color: #DF4145;
+}
+
+.hover3 tbody tr:hover td{
+  background-color: #00ACED;
 }

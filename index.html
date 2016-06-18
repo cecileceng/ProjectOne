@@ -38,21 +38,57 @@
 				<form>
 					<label for="username">Enter a user's twitter handle (no @ required)</label>
 					<br>
-					<input type="text" id="username">
-					<input type="button" name="trollbutt" id="search" value="See 'Troll Footprint'">
+					<input type="text" id="username" placeholder="realDonaldTrump" style="margin-bottom: 10px">
+					<br>
+					<input type="button" name="trollbutt" id="search" style="margin-left: 0px" value="See 'Troll Footprint'">
 				</form>
 			</h3>
 		</div>
 		<div class="row">
-			<div class="panel-body col-sm-6" id="positive">Positive Words
+		<div class="panel-body col-sm-12">
+			<div class="panel-body col-sm-6" id="about">
+			<h3 align="left"> User's Profile Description: </h3>
+			<div id="description"> 
 			</div>
-			<div class="panel-body col-sm-6" id="negative">Negative Words
+			</div>
+			<div class="panel-body col-sm-6" id="score">
+			<h3 align="left"> Troll Rating:</h3>
+			<div id="rating">
+			</div>
+			</div>
+			</div>
+			</div>
+		<div class="row">
+		<div class="panel-body col-sm-12">
+			<div class="panel-body col-sm-6">
+			<h3 class="positive">Positive Words:</h3>
+			<table class="table table-hover hover1">
+            <thead>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        </div>
+			<div class="panel-body col-sm-6">
+			<h3 class="negative">Negative Words:</h3>
+			<table class="table table-hover hover2">
+            <thead>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
 			</div>
 		</div>
+		</div>
 		<div class="row">
-			<div class="panel-body col-sm-3" id="score">User's Score
-			</div>
-			<div class="panel-body col-sm-9" id="tweets">Tweets
+			<div class="panel-body col-sm-12">
+			<h2 class="tweets">Tweet List:</h2>
+			<table class="table table-hover hover3">
+            <thead>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
 			</div>
 			</div>
 		</div>
